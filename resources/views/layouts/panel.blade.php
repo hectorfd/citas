@@ -97,7 +97,7 @@
           </div>
         </div>
         <!-- Form -->
-        <form class="mt-4 mb-3 d-md-none">
+        {{-- <form class="mt-4 mb-3 d-md-none">
           <div class="input-group input-group-rounded input-group-merge">
             <input type="search" class="form-control form-control-rounded form-control-prepended" placeholder="Search" aria-label="Search">
             <div class="input-group-prepend">
@@ -106,9 +106,9 @@
               </div>
             </div>
           </div>
-        </form>
+        </form> --}}
         <!-- Navigation -->
-        <ul class="navbar-nav">
+        {{-- <ul class="navbar-nav">
           <li class="nav-item  active ">
             <a class="nav-link  active " href="./index.html">
               <i class="ni ni-tv-2 text-primary"></i> Dashboard
@@ -173,7 +173,8 @@
               <i class="ni ni-send text-dark"></i> Upgrade to PRO
             </a>
           </li>
-        </ul>
+        </ul> --}}
+        @include('includes.panel.menu')
       </div>
     </div>
   </nav>
