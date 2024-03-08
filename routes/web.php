@@ -20,3 +20,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//rutas especialidades
+Route::get('/especialidades', [App\Http\Controllers\SpecialtyController::class, 'index']);
+Route::get('/especialidades/create', [App\Http\Controllers\SpecialtyController::class, 'create']);
+Route::get('/especialidades/{specialty}/edit', [App\Http\Controllers\SpecialtyController::class, 'edit']);
+Route::post('/especialidades', [App\Http\Controllers\SpecialtyController::class, 'senData']);
