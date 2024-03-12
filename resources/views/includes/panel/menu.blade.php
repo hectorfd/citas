@@ -7,12 +7,12 @@
     </li>
     <li class="nav-item">
       <a class="nav-link " href="{{url('/especialidades')}}">
-        <i class="ni ni-briefcase-24 text-blue"></i> Especialidades
+        <i class="ni ni-briefcase-24 text-blue"></i> Especialidades 
       </a>
     </li>
     <li class="nav-item">
       <a class="nav-link " href="#">
-        <i class="fas fa-stethoscope text-info"></i> Médicos
+        <i class="fas fa-stethoscope text-info"></i>  Médicos
       </a>
     </li>
     <li class="nav-item">
@@ -37,7 +37,7 @@
   <ul class="navbar-nav mb-md-3">
     <li class="nav-item">
       <a class="nav-link" href="#">
-        <i class="ni ni-books text-default"></i> Citas
+        <i class="ni ni-books text-success"></i> Citas
       </a>
     </li>
     <li class="nav-item">
