@@ -4450,23 +4450,56 @@ input[type="button"].btn-block {
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
-  
 }
 
 .nav-link {
   display: block;
-  padding: 0.25rem 0.75rem;
+  padding: 0.5rem 1rem; /* Aumentar el espacio alrededor del texto */
+  transition: background-color 0.3s, color 0.3s; /* Añadir una transición suave para color de fondo y color de texto */
+  font-size: 1rem; /* Tamaño de fuente consistente */
+  color: #333; /* Color de texto predeterminado */
   
 }
 
 .nav-link:hover,
 .nav-link:focus {
   text-decoration: none;
+  /* background-color: #fff;  */
+  color: black; /* Cambiar el color del texto al pasar el cursor */
+}
+
+.nav-link.active {
+  font-weight: bold; /* Hacer que el enlace activo sea más prominente */
+  color: #333; /* Color de texto más oscuro para el enlace activo */
 }
 
 .nav-link.disabled {
   color: #8898aa;
 }
+.h {
+  transition: background-color 0.3s, color 0.3s, border-radius 0.3s, padding 0.3s, box-shadow 0.3s; /* Agregar box-shadow a la transición */
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); /* Añadir sombra en la parte inferior */
+}
+
+.h:hover,
+.h:focus {
+  text-decoration: none;
+  background-color: rgba(255, 255, 255, 0.9);  
+  color: black !important;
+  border-radius: 10px;
+  padding: 10px;
+}
+.h.active{
+  border-radius: 10px;
+  background-color: #fff;  
+  color: black !important;
+  
+}
+
+.barra{
+  width: 400px !important;
+}
+
 
 .nav-tabs {
   border-bottom: 1px solid #dee2e6;
@@ -4542,6 +4575,7 @@ input[type="button"].btn-block {
   align-items: center;
   justify-content: space-between;
   padding: 1rem 1rem;
+  
 }
 
 .navbar>.container,
@@ -4550,6 +4584,7 @@ input[type="button"].btn-block {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+  
 }
 
 .navbar-brand {
@@ -4560,6 +4595,7 @@ input[type="button"].btn-block {
   font-size: 1.25rem;
   line-height: inherit;
   white-space: nowrap;
+  
 }
 
 .navbar-brand:hover,
@@ -4573,11 +4609,13 @@ input[type="button"].btn-block {
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
+ 
 }
 
 .navbar-nav .nav-link {
   padding-right: 0;
   padding-left: 0;
+ 
 }
 
 .navbar-nav .dropdown-menu {

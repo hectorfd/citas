@@ -59,7 +59,7 @@
                 </label>
               </div>
               <div class="text-center">
-                <button type="submit" class="btn btn-primary my-4">{{ __('Iniciar Sesión') }}</button>
+                <button type="submit" class="btn btn-success my-4">{{ __('Iniciar Sesión') }}</button>
               </div>
             </form>
           </div>

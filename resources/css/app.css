@@ -7,3 +7,9 @@
 .blanco{
     color: white;
 }
+.description-wrap {
+    word-wrap: break-word;
+}
+.resize-none {
+    resize: none;
+}

@@ -12,31 +12,49 @@
                 </div>
             </div>
         </div>
+        <div class="card-body">
+            @if (session('notification'))
+                <div class="alert alert-success" role="alert">
+                  {{ session('notification') }}
+                </div>
+                
+            @endif
+        </div>
         <div class="table-responsive">
             <!-- Projects table -->
             <table class="table align-items-center table-flush">
                 <thead class="thead-light">
                     <tr>
                         <th scope="col">Nombre</th>
-                        <th scope="col">Descripcion</th>
+                        <th scope="col" class="d-none d-md-table-cell">Descripcion</th>
                         <th scope="col">Opciones</th>
                         
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach ( $specialties as $especialidad )
                     <tr>
-                        <th scope="row">
-                            /argon/
+                        <th scope="row" >
+                            {{$especialidad->name}}
                         </th>
-                        <td>
-                            4,569
+                        <td class="d-none d-md-table-cell">
+                            <textarea name="" id="" cols="50%" rows="3%" class="form-control border-0 resize-none">{{$especialidad->description}}</textarea>
+                            
                         </td>
                         <td>
-                            <a href="" class="btn btn-sm btn-primary">Editar</a>
-                            <a href="" class="btn btn-sm btn-danger">Eliminar</a>
+                            
+                            <form action="{{url('/especialidades/'.$especialidad->id)}}" method="POST">
+                             
+                                @csrf
+                                @method( 'DELETE' )
+                                <a href="{{url('/especialidades/'.$especialidad->id.'/edit')}}" class="btn btn-sm btn-primary">Editar</a>
+                                <button type="submit" href="" class="btn btn-sm btn-danger">Eliminar</button>
+                            </form>
+                            
                         </td>
                        
                     </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
