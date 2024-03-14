@@ -10,7 +10,7 @@
             <i class="ni ni-briefcase-24 text-blue"></i> Especialidades 
         </a>
     </li>
-    <li class="nav-item pb-2 {{ Request::is('especialidades') ? 'active' : '' }}">
+    <li class="nav-item pb-2 {{ Request::is('medicos') ? 'active' : '' }}">
       <a class="nav-link h {{ Request::is('medicos') ? 'active' : '' }}" href="{{ url('/medicos') }}">
         <i class="fas fa-stethoscope text-info"></i>  Médicos
       </a>
