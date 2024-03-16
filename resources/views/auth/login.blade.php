@@ -6,7 +6,7 @@
 <div class="container mt--8 pb-5">
     <div class="row justify-content-center">
       <div class="col-lg-5 col-md-7">
-        <div class="card bg-secondary shadow border-0">
+        <div class="card bg-suave shadow border-0">
           {{-- <div class="card-header bg-transparent pb-5"> --}}
             {{-- <div class="text-muted text-center mt-2 mb-3"><small>Sign in with</small></div>
             <div class="btn-wrapper text-center">
@@ -59,7 +59,7 @@
                 </label>
               </div>
               <div class="text-center">
-                <button type="submit" class="btn btn-success my-4">{{ __('Iniciar Sesión') }}</button>
+                <button type="submit" class="btn btn-info my-4">{{ __('Iniciar Sesión') }}</button>
               </div>
             </form>
           </div>

@@ -19,7 +19,7 @@
   <link href="{{ asset('css/argon-dashboard.css?v=1.1.2') }}" rel="stylesheet" />
 </head>
 
-<body class="bg-default">
+<body class="bg-image">
   <div class="main-content">
     <!-- Navbar -->
     <nav class="navbar navbar-top navbar-horizontal navbar-expand-md navbar-dark">
@@ -78,22 +78,25 @@
       </div>
     </nav>
     <!-- Header -->
-    <div class="header bg-gradient-info py-6 py-lg-7">
+    {{-- <div class="header bg-gradient-info py-6 py-lg-7"> --}}
+    <div class="header bg-image py-6 py-lg-7">
       <div class="container">
         <div class="header-body text-center mb-7">
           <div class="row justify-content-center">
             <div class="col-lg-5 col-md-6">
               <h1 class="text-white">@yield('title','Bienvenido')</h1>
+              {{-- <div class="separator separator-bottom separator-skew zindex-100"> --}}
+                <svg x="0" y="0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="70" height="70">
+                  <polygon class="fill-danger" points="7,2 17,2 17,7 22,7 22,17 17,17 17,22 7,22 7,17 2,17 2,7 7,7" fill="none" stroke="white" stroke-width="1" />
+              </svg>
+              {{-- </div> --}}
               
             </div>
           </div>
         </div>
+        
       </div>
-      <div class="separator separator-bottom separator-skew zindex-100">
-        <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
-          <polygon class="fill-default" points="560 0 2560 100 0 100"></polygon>
-        </svg>
-      </div>
+      
     </div>
     <!-- Page content -->
     @yield('content')

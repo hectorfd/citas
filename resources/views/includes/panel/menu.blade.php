@@ -1,5 +1,12 @@
-<h6 class="navbar-heading text-muted">Gestión</h6>
+<h6 class="navbar-heading text-muted">
+  @if(auth()->user()->role == 'admin')
+        Gestión
+    @else
+        Menú
+    @endif  
+</h6>
 <ul class="navbar-nav">
+  @if(auth()->user()->role == 'admin')
     <li class="nav-item pb-2 {{ Request::is('home') ? 'active' : '' }}">
       <a class="nav-link  h {{ Request::is('home') ? 'active' : '' }}" href="{{ url('/home') }}">
           <i class="ni ni-tv-2 text-danger"></i> Panel de control
@@ -20,6 +27,37 @@
         <i class="fas fa-bed text-warning"></i> Pacientes
       </a>
     </li>
+
+    @elseif(auth()->user()->role == 'doctor')
+    <li class="nav-item pb-2 {{ Request::is('horario') ? 'active' : '' }}">
+      <a class="nav-link h {{ Request::is('horario') ? 'active' : '' }}" href="{{ url('/horario') }}">
+        <i class="ni ni-calendar-grid-58 text-primary"></i> Gestionar Horario
+      </a>
+    </li>
+    <li class="nav-item pb-2 {{ Request::is('citas') ? 'active' : '' }}">
+      <a class="nav-link h {{ Request::is('citas') ? 'active' : '' }}" href="{{ url('/citas') }}">
+        <i class="fas fa-clock text-info"></i> Mis Citas
+      </a>
+    </li>
+    <li class="nav-item pb-2 {{ Request::is('pacientes') ? 'active' : '' }}">
+      <a class="nav-link h {{ Request::is('pacientes') ? 'active' : '' }}" href="{{ url('/pacientes') }}">
+        <i class="fas fa-bed text-danger"></i> Mis Pacientes
+      </a>
+    </li>
+
+    @else
+    <li class="nav-item pb-2 {{ Request::is('horario') ? 'active' : '' }}">
+      <a class="nav-link h {{ Request::is('horario') ? 'active' : '' }}" href="{{ url('/horario') }}">
+        <i class="ni ni-calendar-grid-58 text-primary"></i> Gestionar Horario
+      </a>
+    </li>
+    <li class="nav-item pb-2 {{ Request::is('citas') ? 'active' : '' }}">
+      <a class="nav-link h {{ Request::is('citas') ? 'active' : '' }}" href="{{ url('/citas') }}">
+        <i class="fas fa-clock text-info"></i> Reservar Cita
+      </a>
+    </li>
+    @endif
+
     <li class="nav-item pb-2 ">
       <a class="nav-link h {{ Request::is('#') ? 'active' : '' }}" href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('formLogout').submit();">
         <i class="ni ni-button-power text-pink"></i> Cerrar Sesión
@@ -29,6 +67,7 @@
     </form>
     </li>
   </ul>
+  @if(auth()->user()->role == 'admin')
   <!-- Divider -->
   <hr class="my-3">
   <!-- Heading -->
@@ -46,4 +85,5 @@
       </a>
     </li>
   </ul>
+  @endif
  

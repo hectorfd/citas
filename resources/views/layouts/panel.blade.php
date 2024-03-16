@@ -20,7 +20,7 @@
 </head>
 
 <body class="">
-    <nav class="navbar navbar-vertical fixed-left navbar-expand-lg navbar-dark bg-default barra w-600 " id="sidenav-main">
+    <nav class="navbar navbar-vertical fixed-left navbar-expand-lg navbar-dark bg-default w-600 " id="sidenav-main">
         <div class="container-fluid p-2">
             <!-- Toggler -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidenav-collapse-main"

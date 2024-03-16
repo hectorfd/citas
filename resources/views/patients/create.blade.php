@@ -1,3 +1,6 @@
+<?php 
+use Illuminate\Support\Str;
+?>
 @extends('layouts.panel')
 
 @section('content')
@@ -25,7 +28,7 @@
             @else
                 
             @endif
-            <form action="{{url('/medicos')}}" method="POST">
+            <form action="{{url('/pacientes')}}" method="POST">
                 @csrf
                 <div class="form-group">
                     <label for="name">Nombre del Paciente</label>
@@ -47,6 +50,10 @@
                 <div class="form-group">
                     <label for="phone">Telefono / Movil</label>
                     <input type="text" name="phone" class="form-control" value="{{old('phone')}}">
+                </div>
+                <div class="form-group">
+                    <label for="password">Contraseña</label>
+                    <input type="text" name="password" class="form-control" value="{{ old('password', Str::random(8)) }}">
                 </div>
                 <button type="submit" class="btn btn-sm btn-primary">Crear Paciente</button>
 
