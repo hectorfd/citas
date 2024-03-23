@@ -102,7 +102,7 @@ use Illuminate\Support\Str;
                                                 Selecciona un médico y una fecha, para ver las horas.
                                             </small>
                                         </mark>
-                                    @endif --}}
+                                    @endif  --}}
                                 </div>
                             </div>
                             <div class="col">
@@ -116,7 +116,7 @@ use Illuminate\Support\Str;
                                             <label class="custom-control-label" for="intervalAfternoon{{ $key }}">{{ $interval['start'] }} - {{ $interval['end'] }}</label>
                                             </div>
                                         @endforeach
-                                    @endif  --}}
+                                    @endif --}}
                                 </div>
                             </div>
 
@@ -160,41 +160,6 @@ use Illuminate\Support\Str;
 <!-- Latest compiled and minified JavaScript -->
 <script src="{{ asset('js/plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')}} "></script>
 
-{{-- <script src="{{ asset('/js/appointments/create.js') }}" >
-</script> --}}
-<script>
-    let $doctor, $date, $specialty, iRadio;
-    let $hoursMorning, $hoursAfternoon, $titleMorning, $titleAfternoon;
-
-    $(function(){
-    $specialty = $('#specialty');
-    $doctor = $('#doctor');
-    // $date = $('#date');
-    // $titleMorning = $('#titleMorning');
-    // $hoursMorning = $('#hoursMorning');
-    // $titleAfternoon = $('#titleAfternoon');
-    // $hoursAfternoon = $('#hoursAfternoon');
-
-    $specialty.change(() => {
-        const specialtyId = $specialty.val();
-        const url = `/especialidades/${specialtyId}/medicos`;
-        $.getJSON(url, onDoctorsLoaded);
-    });
-
-    // $doctor.change(loadHours);
-    // $date.change(loadHours);
-});
-
-function onDoctorsLoaded (doctors) {
-    let htmlOptions = '';
-    doctors.forEach(doctor => {
-        htmlOptions += `<option value="${doctor.id}" >${doctor.name}</option>`;
-    });
-    $doctor.html(htmlOptions);
-
-    // loadHours();
-}
-</script>
-
+<script src="{{ asset('/js/appointments/create.js') }}" ></script> 
 
 @endsection
