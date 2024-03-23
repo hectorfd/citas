@@ -20,24 +20,24 @@ class Appointment extends Model
         'specialty_id'
     ];
 
-    // public function specialty() {
-    //     return $this->belongsTo(Specialty::class);
-    // }
+    public function specialty() {
+         return $this->belongsTo(Specialty::class);
+    }
 
-    // public function doctor(){
-    //     return $this->belongsTo(User::class);
-    // }
+    public function doctor(){
+         return $this->belongsTo(User::class);
+    }
 
-    // public function patient(){
-    //     return $this->belongsTo(User::class);
-    // }
+    public function patient(){
+         return $this->belongsTo(User::class);
+    }
 
-    // public function getScheduledTime12Attribute(){
-    //     return (new Carbon($this->scheduled_time))
-    //         ->format('g:i A');
-    // }
+    public function getScheduledTime12Attribute(){
+        return (new Carbon($this->scheduled_time))
+             ->format('g:i A');
+    }
 
-    // public function cancellation() {
-    //     return $this->hasOne(CancelledAppointment::class);
-    // }
+    public function cancellation() {
+          return $this->hasOne(CancelledAppointment::class);
+    }
 }

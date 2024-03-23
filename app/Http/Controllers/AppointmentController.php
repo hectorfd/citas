@@ -54,7 +54,7 @@ class AppointmentController extends Controller
         compact('confirmedAppointments', 'pendingAppointments', 'oldAppointments', 'role') );
     }
 
-    
+
     public function create(HorarioServiceInterface $horarioServiceInterface) {
         $specialties = Specialty::all();
         
@@ -141,5 +141,36 @@ class AppointmentController extends Controller
         $notification = 'La cita se ha realizado correctamente.';
         return back()->with(compact('notification'));
         // return redirect('/miscitas')->with(compact('notification'));
+    }
+
+    public function cancel(Appointment $appointment, Request $request) {
+
+        if($request->has('justification')){
+            $cancellation = new CancelledAppointment();
+            $cancellation->justification = $request->input('justification');
+            $cancellation->cancelled_by_id = auth()->id();
+
+            $appointment->cancellation()->save($cancellation);
+        }
+
+        $appointment->status = 'Cancelada';
+        $appointment->save();
+        $notification = 'La cita se ha cancelado correctamente.';
+
+        return redirect('/miscitas')->with(compact('notification'));
+    }
+
+    public function formCancel(Appointment $appointment) {
+        if($appointment->status == 'Confirmada' || 'Reservada'){
+            $role = auth()->user()->role;
+            return view('appointments.cancel', compact('appointment', 'role'));
+        }
+        return redirect('/miscitas');
+        
+    }
+
+    public function show(Appointment $appointment){
+        $role = auth()->user()->role;
+        return view('appointments.show', compact('appointment', 'role'));
     }
 }
