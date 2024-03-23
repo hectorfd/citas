@@ -25,13 +25,13 @@
   <h6 class="navbar-heading text-muted">Reportes</h6>
   <!-- Navigation -->
   <ul class="navbar-nav mb-md-3">
-    <li class="nav-item pb-2 {{ Request::is('miscitas') ? 'active' : '' }}">
-      <a class="nav-link h {{ Request::is('miscitas') ? 'active' : '' }}" href="{{ url('/miscitas') }}">
+    <li class="nav-item pb-2 {{ Request::is('reportes/citas/line') ? 'active' : '' }}">
+      <a class="nav-link h {{ Request::is('reportes/citas/line') ? 'active' : '' }}" href="{{ url('/reportes/citas/line') }}">
         <i class="ni ni-books text-success"></i> Citas
       </a>
     </li>
-    <li class="nav-item pb-2 {{ Request::is('desempeño') ? 'active' : '' }}">
-      <a class="nav-link h {{ Request::is('desempeño') ? 'active' : '' }}" href="https://demos.creative-tim.com/argon-dashboard/docs/foundation/colors.html">
+    <li class="nav-item pb-2 {{ Request::is('reportes/doctors/column') ? 'active' : '' }}">
+      <a class="nav-link h {{ Request::is('reportes/doctors/column') ? 'active' : '' }}" href="{{ url('/reportes/doctors/column') }}">
         <i class="ni ni-chart-bar-32 text-warning"></i> Desempeño medico
       </a>
     </li>
