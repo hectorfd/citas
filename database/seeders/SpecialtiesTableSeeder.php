@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\Specialty;
+use App\Models\User;
 
 class SpecialtiesTableSeeder extends Seeder
 {
@@ -24,13 +25,13 @@ class SpecialtiesTableSeeder extends Seeder
             'Dermatología'
         ];
         foreach ($specialties as $specialtyName) {
-            Specialty::create([
+            $specialty = Specialty::create([
                 'name' => $specialtyName
             ]);
-            // $specialty->users()->saveMany(
-            //     User::factory(4)->state(['role' => 'doctor'])->make()
-            // );
+            $specialty->users()->saveMany(
+                 User::factory(4)->state(['role' => 'doctor'])->make()
+             );
         }
-        // User::find(3)->specialties()->save($specialty);
+        User::find(3)->specialties()->save($specialty);
     }
 }

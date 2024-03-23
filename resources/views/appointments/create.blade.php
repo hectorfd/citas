@@ -56,11 +56,11 @@ use Illuminate\Support\Str;
                     <div class="form-group col-md-6">
                         <label for="doctor">Médico</label>
                         <select name="doctor_id" id="doctor" class="form-control" required>
-                            {{-- @foreach ($doctors as $doctor)
+                            @foreach ($doctors as $doctor)
                             <option value="{{ $doctor->id }}"
                                 @if(old('doctor_id') == $doctor->id) selected @endif>
                                 {{ $doctor->name }}</option>
-                            @endforeach   --}}
+                            @endforeach
                         </select>
                     </div>
                 </div>
@@ -88,7 +88,7 @@ use Illuminate\Support\Str;
                             <div class="col">
                                 <h4 class="m-3" id="titleMorning"></h4>
                                 <div id="hoursMorning">
-                                    {{-- @if($intervals)
+                                    @if($intervals)
                                         <h4 class="m-3">En la mañana</h4>
                                         @foreach ($intervals['morning'] as $key => $interval)
                                             <div class="custom-control custom-radio mb-3">
@@ -102,13 +102,13 @@ use Illuminate\Support\Str;
                                                 Selecciona un médico y una fecha, para ver las horas.
                                             </small>
                                         </mark>
-                                    @endif  --}}
+                                    @endif 
                                 </div>
                             </div>
                             <div class="col">
                                 <h4 class="m-3" id="titleAfternoon"></h4>
                                 <div id="hoursAfternoon">
-                                    {{-- @if($intervals)
+                                    @if($intervals)
                                         <h4 class="m-3">En la tarde</h4>
                                         @foreach ($intervals['afternoon'] as $key => $interval)
                                             <div class="custom-control custom-radio mb-3">
@@ -116,7 +116,7 @@ use Illuminate\Support\Str;
                                             <label class="custom-control-label" for="intervalAfternoon{{ $key }}">{{ $interval['start'] }} - {{ $interval['end'] }}</label>
                                             </div>
                                         @endforeach
-                                    @endif --}}
+                                    @endif
                                 </div>
                             </div>
 
