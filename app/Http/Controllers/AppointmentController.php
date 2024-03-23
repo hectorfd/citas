@@ -139,8 +139,8 @@ class AppointmentController extends Controller
         Appointment::create($data);
 
         $notification = 'La cita se ha realizado correctamente.';
-        return back()->with(compact('notification'));
-        // return redirect('/miscitas')->with(compact('notification'));
+        // return back()->with(compact('notification'));
+        return redirect('/miscitas')->with(compact('notification'));
     }
 
     public function cancel(Appointment $appointment, Request $request) {
@@ -156,6 +156,15 @@ class AppointmentController extends Controller
         $appointment->status = 'Cancelada';
         $appointment->save();
         $notification = 'La cita se ha cancelado correctamente.';
+
+        return redirect('/miscitas')->with(compact('notification'));
+    }
+
+    public function confirm(Appointment $appointment) {
+
+        $appointment->status = 'Confirmada';
+        $appointment->save();
+        $notification = 'La cita se ha confirmado correctamente.';
 
         return redirect('/miscitas')->with(compact('notification'));
     }
