@@ -7,5 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Specialty extends Model
 {
+    
     use HasFactory;
+    public function users(){
+        return $this->belongsToMany(User::class)->withTimestamps();
+    }
 }

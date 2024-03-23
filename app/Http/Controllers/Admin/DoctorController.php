@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Http\Controllers\Controller;
+use App\Models\Specialty;
 class DoctorController extends Controller
 {
     public function index()
@@ -15,7 +16,8 @@ class DoctorController extends Controller
 
     public function create()
     {
-        return view('doctors.create');
+        $specialties = Specialty::all();
+        return view('doctors.create', compact('specialties'));
     }
 
     /**
@@ -45,12 +47,14 @@ class DoctorController extends Controller
         ];
         $this->validate($request, $rules, $messages);
 
-        User::create(
+        $user = User::create(
             $request->only('name','email','cedula','address','phone') + [
                 'role' => 'doctor',
                 'password' => bcrypt($request->input('password'))
             ]
         );
+
+        $user->specialties()->attach($request->input('specialties'));
        
 
         $notification = 'El médico se ha registrado correctamente.';
@@ -72,7 +76,11 @@ class DoctorController extends Controller
     public function edit($id)
     {
         $doctor = User::doctors()->findOrFail($id);
-        return view('doctors.edit',compact('doctor'));
+        
+        $specialties = Specialty::all();
+        $specialty_ids = $doctor->specialties()->pluck('specialties.id');
+        return view('doctors.edit', compact('doctor', 'specialties', 'specialty_ids'));
+
     }
 
    
@@ -106,6 +114,7 @@ class DoctorController extends Controller
 
         $user->fill($data);
         $user->save();
+        $user->specialties()->sync($request->input('specialties'));
         
 
         $notification = 'La información del médico se actualizo correctamente.';
